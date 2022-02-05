@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = Post::all();
+        $user = auth()->user();
+        return view('home',compact('posts','user'));
+        //psotsとuserは「home.blade.php」に渡したい変数のこと
     }
 }
