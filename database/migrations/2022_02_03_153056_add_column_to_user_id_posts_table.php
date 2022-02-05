@@ -13,8 +13,8 @@ class AddColumnToUserIdPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posets', function (Blueprint $table) {
-            //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->after('image');
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnToUserIdPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posets', function (Blueprint $table) {
-            //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('user_id');
         });
     }
 }
