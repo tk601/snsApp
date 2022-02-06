@@ -41,7 +41,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->user_id = auth()->user()->id;
         $post->save();
-        return back()->with('message','保存しました');    
+        return back()->with('message','保存しました');
     }
 
     /**
@@ -50,9 +50,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('post.show',compact('post'));
     }
 
     /**

@@ -1,27 +1,24 @@
 @extends('layouts.app')
 @section('content')
 
-@foreach ($posts as $post)
 {{ $user->name }}さんこんにちわ
+@foreach ($posts as $post)
 <div class="">
     <div>
         <div class="">
-            {{ $post->title }}
+            <a href="{{ route('post.show',$post) }}">タイトル「{{ $post->title }}」</a>
             <div class="">
-                {{ $post->user->name }}
+                ユーザー名「{{ $post->user->name }}」
             </div>
             <div class="">
                 <div class="">
-                    作成日
-                </div>
-                <div class="">
-                    {{ $post->created_at->diffForHumans() }}
+                    作成日「{{ $post->created_at->diffForHumans() }}」
                 </div>
             </div>
         </div>
     </div>
     <div class="">
-        <p>{{ $post->body }}</p>
+        <p>本文「{{ $post->body }}」</p>
     </div>
 </div>
 @endforeach
