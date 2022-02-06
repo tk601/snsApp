@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id','desc')->get();
         $user = auth()->user();
         return view('home',compact('posts','user'));
         //psotsとuserは「home.blade.php」に渡したい変数のこと
